@@ -19,5 +19,4 @@
 /.bundle
 
 # MySQL Docker volume
-/db_data/
-
+/mysql_data/
