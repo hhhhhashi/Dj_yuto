@@ -129,16 +129,16 @@ make down
 
 ### コマンド一覧
 
-| 実行する処理                                                            | コマンド                                                                               |
+| Make                | 実行する処理                                                            | 元のコマンド                                                                               |
 | ------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| make prepare        | node_modules のインストール、イメージのビルド、コンテナの起動を順に行う 　　　　　　| docker-compose run --rm front npm install<br>docker-compose up -d --build                  |
-| make up             | コンテナの起動                                                           　| docker-compose up -d                                                                       |
-| make build          | イメージのビルド                                                           | docker-compose build                                                                       |
-| make down           | コンテナの停止                                                            | docker-compose down                                                                        |
-| make loaddata       | テストデータの投入                                                         | docker-compose exec app poetry run python manage.py loaddata crm.json                      |
-| make makemigrations | マイグレーションファイルの作成                                               | docker-compose exec app poetry run python manage.py makemigrations                         |
-| make migrate        | マイグレーションを行う                                                     | docker-compose exec app poetry run python manage.py migrate                                |
-| make show_urls      | エンドポイントをターミナル上で一覧表示                                        | docker-compose exec app poetry run python manage.py show_urls                              |
+| make prepare        | node_modules のインストール、イメージのビルド、コンテナの起動を順に行う | docker-compose run --rm front npm install<br>docker-compose up -d --build                  |
+| make up             | コンテナの起動                                                          | docker-compose up -d                                                                       |
+| make build          | イメージのビルド                                                        | docker-compose build                                                                       |
+| make down           | コンテナの停止                                                          | docker-compose down                                                                        |
+| make loaddata       | テストデータの投入                                                      | docker-compose exec app poetry run python manage.py loaddata crm.json                      |
+| make makemigrations | マイグレーションファイルの作成                                          | docker-compose exec app poetry run python manage.py makemigrations                         |
+| make migrate        | マイグレーションを行う                                                  | docker-compose exec app poetry run python manage.py migrate                                |
+| make show_urls      | エンドポイントをターミナル上で一覧表示                                  | docker-compose exec app poetry run python manage.py show_urls                              |
 | make shell          | テストデータの投入                                                      | docker-compose exec app poetry run python manage.py debugsqlshell                          |
 | make superuser      | スーパーユーザの作成                                                    | docker-compose exec app poetry run python manage.py createsuperuser                        |
 | make test           | テストを実行                                                            | docker-compose exec app poetry run pytest                                                  |

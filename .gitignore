@@ -1,0 +1,23 @@
+# ログファイル
+/log/*
+!/log/.keep
+
+# 一時ファイル
+/tmp/*
+!/tmp/.keep
+
+# pidファイル
+/tmp/pids/*
+
+# Node.js関連
+/node_modules/
+
+# Railsのプリコンパイル済みアセット
+/public/assets/
+
+# バンドルキャッシュ
+/.bundle
+
+# MySQL Docker volume
+/db_data/
+
