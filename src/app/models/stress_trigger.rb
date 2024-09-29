@@ -1,0 +1,2 @@
+class StressTrigger < ApplicationRecord
+end

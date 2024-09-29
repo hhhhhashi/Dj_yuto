@@ -1,5 +1,27 @@
 Rails.application.routes.draw do
   
+  namespace :public do
+    get 'analytics_results/index'
+    get 'analytics_results/show'
+  end
+  namespace :public do
+    get 'emotion_logs/index'
+    get 'emotion_logs/show'
+  end
+  namespace :public do
+    get 'improvement_suggestions/index'
+    get 'improvement_suggestions/show'
+  end
+  namespace :public do
+    get 'negative_reports/new'
+    get 'negative_reports/index'
+    get 'negative_reports/show'
+    get 'negative_reports/edit'
+  end
+  namespace :public do
+    get 'users/show'
+    get 'users/edit'
+  end
   # 顧客用
   # URL /users/sign_in ...
   devise_for :users,skip: [:passwords], controllers: {

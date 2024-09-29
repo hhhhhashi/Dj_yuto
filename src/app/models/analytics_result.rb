@@ -1,0 +1,2 @@
+class AnalyticsResult < ApplicationRecord
+end

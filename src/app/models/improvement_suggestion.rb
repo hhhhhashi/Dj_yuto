@@ -1,0 +1,2 @@
+class ImprovementSuggestion < ApplicationRecord
+end
