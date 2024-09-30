@@ -1,2 +1,31 @@
-<h1>Public::NegativeReports#new</h1>
-<p>Find me in app/views/public/negative_reports/new.html.erb</p>
+<h1>週報作成画面</h1>
+
+<%= form_with model: @negative_report, url: public_negative_reports_path, local: true do |f| %>
+    <p>作成日時</p>
+
+    <p>不満なこと</p>
+    <%= f.text_field :frustration %>
+
+    <p>一番イラっとしたこと</p>
+    <%= f.text_field :top_annoyance %>
+
+    <p>環境面の不満</p>
+    <%= f.text_field :environment_complaint %>
+
+    <p>辞めたいと思った瞬間</p>
+    <%= f.text_field :quit_moment %>
+
+    <p>辞めた後の生活の想像</p>
+    <%= f.text_field :future_after_quit %>
+
+    <p>エンゲージメント（数値）</p>
+    <%= f.number_field :engagement_level, min: 0, max: 100 %>
+
+    <p>タスクの不可能度（％）</p>
+    <%= f.number_field :task_impossibility, min: 0, max: 100, step: 1 %>
+
+    <p>気分の変化や改善の有無（数値、フリーテキスト）</p>
+    <%= f.text_field :mood_change %>
+
+<% end %>
+

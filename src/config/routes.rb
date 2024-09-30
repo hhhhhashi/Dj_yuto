@@ -13,10 +13,8 @@ Rails.application.routes.draw do
     get 'improvement_suggestions/show'
   end
   namespace :public do
-    get 'negative_reports/new'
-    get 'negative_reports/index'
-    get 'negative_reports/show'
-    get 'negative_reports/edit'
+    # 他のルート定義があるかもしれませんが、これを追加/確認します
+    resources :negative_reports
   end
   namespace :public do
     get 'users/show'
