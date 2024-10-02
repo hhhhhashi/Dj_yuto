@@ -19,6 +19,7 @@ module Public
     end
 
     def show
+      @negative_report=NegativeReport.find(params[:id])
     end
 
     def edit

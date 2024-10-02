@@ -1,2 +1,16 @@
 <h1>Public::NegativeReports#show</h1>
 <p>Find me in app/views/public/negative_reports/show.html.erb</p>
+
+<div>
+<p>投稿No.：<%= @negative_report.id %></p>
+<p>作成日時：<%= @negative_report.created_at %></p>
+<p>不満なこと：<%= @negative_report.frustration %></p>
+<p>今日一日で一番イラっとしたこと：<%= @negative_report.top_annoyance%></p>
+<p>環境面の不満：<%= @negative_report.environment_complaint %></p>
+<p>辞めたいと思った瞬間：<%= @negative_report.quit_moment  %></p>
+<p>疲れエンゲージメント（数値、レベル）：<%= @negative_report.future_after_quit %></p>
+<p>辞めた後の生活の想像：<%= @negative_report.engagement_level %></p>
+<p>タスクの不可能度：<%= @negative_report.task_impossibility %></p>
+<p>気分の変化や改善の有無（数値、フリーテキスト）：<%= @negative_report.mood_change %></p>
+</div>
+

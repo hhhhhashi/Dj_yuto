@@ -2,6 +2,8 @@
 
 <% @negative_reports.each do |negative_report| %>
     <div>
+      <p>投稿No.：<%= link_to negative_report.id ,public_negative_report_path(negative_report.id) %></p>
+      <p>作成日時：<%= negative_report.created_at %></p>
       <p>不満なこと：<%= negative_report.frustration %></p>
       <p>今日一日で一番イラっとしたこと：<%= negative_report.top_annoyance%></p>
       <p>環境面の不満：<%= negative_report.environment_complaint %></p>
