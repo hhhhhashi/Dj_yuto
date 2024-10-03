@@ -15,7 +15,7 @@ module Public
     end
 
     def index
-      @negative_reports=NegativeReport.all
+      @negative_reports=current_user.negative_reports.order(created_at: :desc)
     end
 
     def show
