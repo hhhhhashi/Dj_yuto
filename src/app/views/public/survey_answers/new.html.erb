@@ -1,0 +1,70 @@
+<h1>Public::SurveyAnswers#new</h1>
+<p>Find me in app/views/public/survey_answers/new.html.erb</p>
+
+<h1>アンケート</h1>
+
+<%= form_with model: @survey_answer, url: public_negative_reports_path, local: true do |f| %>
+    
+    <p>今の仕事で、スキルや知識の向上を感じていますか？</p>
+    <%= f.number_field :question_1_score, min: 0, max: 5 %>
+
+    <p>この仕事が将来のキャリアに有益であると感じますか？</p>
+    <%= f.number_field :question_2_score, min: 0, max: 5 %>
+
+    <p>同僚との関係は良好ですか？</p>
+    <%= f.number_field :question_3_score, min: 0, max: 5 %>
+
+    <p>上司との関係に満足していますか？</p>
+    <%= f.number_field :question_4_score, min: 0, max: 5 %>
+
+    <p>職場でサポートを受けられると感じますか？</p>
+    <%= f.number_field :question_5_score, min: 0, max: 5 %>
+
+    <p>今の仕事の労働時間に満足していますか？</p>
+    <%= f.number_field :question_6_score, min: 0, max: 5 %>
+
+    <p>仕事とプライベートのバランスが取れていると感じますか？</p>
+    <%= f.number_field :question_7_score, min: 0, max: 5 %>
+
+    <p>休暇やフレキシブルな働き方に満足していますか？</p>
+    <%= f.number_field :question_8_score, min: 0, max: 5 %>
+
+    <p>現在の給与に満足していますか？</p>
+    <%= f.number_field :question_9_score, min: 0, max: 5 %>
+
+    <p>福利厚生や待遇面に不満はありますか？</p>
+    <%= f.number_field :question_10_score, min: 0, max: 5 %>
+
+    <p>今の仕事にやりがいを感じていますか？</p>
+    <%= f.number_field :question_11_score, min: 0, max: 5 %>
+
+    <p>仕事の内容に対して、楽しさを感じますか？</p>
+    <%= f.number_field :question_12_score, min: 0, max: 5 %>
+
+    <p>日常業務において、意味を見出せていますか？</p>
+    <%= f.number_field :question_13_score, min: 0, max: 5 %>
+
+    <p>職場の雰囲気や文化に満足していますか？</p>
+    <%= f.number_field :question_14_score, min: 0, max: 5 %>
+
+    <p>職場が働きやすい環境だと感じますか？</p>
+    <%= f.number_field :question_15_score, min: 0, max: 5 %>
+
+    <p>仕事のストレスが大きいと感じますか？</p>
+    <%= f.number_field :question_16_score, min: 0, max: 5 %>
+
+    <p>仕事の負荷が自分にとって適切だと感じますか？</p>
+    <%= f.number_field :question_17_score, min: 0, max: 5 %>
+
+    <p>今の仕事が社会や他者に貢献していると感じますか？</p>
+    <%= f.number_field :question_18_score, min: 0, max: 5 %>
+
+    <p>業務が完了したときに達成感を感じますか？</p>
+    <%= f.number_field :question_19_score, min: 0, max: 5 %>
+
+    <p>今の仕事で、スキルや知識の向上を感じていますか？</p>
+    <%= f.number_field :question_20_score, min: 0, max: 5 %>
+
+    <%= f.submit '投稿' %>
+    
+<% end %>

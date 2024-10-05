@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_09_29_085221) do
+ActiveRecord::Schema.define(version: 2024_10_05_030647) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -105,6 +105,37 @@ ActiveRecord::Schema.define(version: 2024_09_29_085221) do
     t.string "trigger_category"
     t.integer "trigger_frequency"
     t.integer "improvement_level"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "survey_answers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "question_1_score"
+    t.integer "question_2_score"
+    t.integer "question_3_score"
+    t.integer "question_4_score"
+    t.integer "question_5_score"
+    t.integer "question_6_score"
+    t.integer "question_7_score"
+    t.integer "question_8_score"
+    t.integer "question_9_score"
+    t.integer "question_10_score"
+    t.integer "question_11_score"
+    t.integer "question_12_score"
+    t.integer "question_13_score"
+    t.integer "question_14_score"
+    t.integer "question_15_score"
+    t.integer "question_16_score"
+    t.integer "question_17_score"
+    t.integer "question_18_score"
+    t.integer "question_19_score"
+    t.integer "question_20_score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "survey_results", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
