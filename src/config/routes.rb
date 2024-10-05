@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   
   namespace :public do
-    get 'survey_answers/new'
-    get 'survey_answers/index'
-    get 'survey_answers/show'
+    resources :survey_answers
   end
   namespace :public do
     get 'analytics_results/index'

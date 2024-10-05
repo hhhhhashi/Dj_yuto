@@ -8,7 +8,7 @@ module Public
       @negative_report = NegativeReport.new(negative_report_params)
       @negative_report.user_id=current_user.id
       if @negative_report.save
-        redirect_to public_users_show_path, notice: 'Negative report was successfully created.'
+        redirect_to new_public_survey_answer_path, notice: 'Negative report was successfully created.'
       else
         render :new
       end

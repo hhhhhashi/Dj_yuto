@@ -54,9 +54,25 @@ class Public::SurveyAnswersController < ApplicationController
                             @survey_answer.question_18_score
       
       purpose_and_accomplishment = @survey_answer.question_19_score +
-                                   @survey_answer.question_20_score                              
+                                   @survey_answer.question_20_score 
+      
+      diagnosis = determine_diagnosis(total_score)
+
+      SurveyResult.create!(
+      user_id: current_user.id,
+      total_score: total_score,
+      career_growth_opportunities: career_growth_opportunities, 
+      workplace_relationships: workplace_relationships,
+      work_life_balance: work_life_balance,
+      compensation_and_benefits: compensation_and_benefits,
+      job_content_and_fulfillment: job_content_and_fulfillment, 
+      workplace_culture_and_environment: workplace_culture_and_environment,
+      stress_and_workload: stress_and_workload, 
+      purpose_and_accomplishment: purpose_and_accomplishment,
+      diagnosis: diagnosis
+    )
                                           
-      redirect_to public_users_show_path, notice: '@survey_answer was successfully created.'
+    redirect_to public_users_show_path, notice: '@survey_answer was successfully created.'
     else
       render :new
     end
@@ -66,5 +82,33 @@ class Public::SurveyAnswersController < ApplicationController
   end
 
   def show
+  end
+
+  private
+
+  def determine_diagnosis(total_score)
+    if total_score >= 90
+      "非常に満足"
+    elsif total_score.between?(70, 89)
+      "おおむね満足"
+    elsif total_score.between?(50, 69)
+      "やや不満"
+    elsif total_score.between?(30, 49)
+      "不満が多い"
+    else
+      "非常に不満"
+    end
+  end
+
+  def survey_answer_params
+    params.require(:survey_answer).permit(
+      :question_1_score, :question_2_score, :question_3_score, 
+      :question_4_score, :question_5_score, :question_6_score, 
+      :question_7_score, :question_8_score, :question_9_score, 
+      :question_10_score, :question_11_score, :question_12_score,
+      :question_13_score, :question_14_score, :question_15_score, 
+      :question_16_score, :question_17_score, :question_18_score,
+      :question_19_score, :question_20_score
+    )
   end
 end

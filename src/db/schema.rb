@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_10_05_030647) do
+ActiveRecord::Schema.define(version: 2024_10_05_063559) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -136,8 +136,19 @@ ActiveRecord::Schema.define(version: 2024_10_05_030647) do
   end
 
   create_table "survey_results", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "career_growth_opportunities"
+    t.integer "workplace_relationships"
+    t.integer "work_life_balance"
+    t.integer "compensation_and_benefits"
+    t.integer "job_content_and_fulfillment"
+    t.integer "workplace_culture_and_environment"
+    t.integer "stress_and_workload"
+    t.integer "purpose_and_accomplishment"
+    t.integer "total_score"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "diagnosis"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
