@@ -3,22 +3,31 @@ Rails.application.routes.draw do
   namespace :public do
     resources :survey_answers
   end
+
+  namespace :public do
+    resources :survey_results
+  end
+
   namespace :public do
     get 'analytics_results/index'
     get 'analytics_results/show'
   end
+
   namespace :public do
     get 'emotion_logs/index'
     get 'emotion_logs/show'
   end
+
   namespace :public do
     get 'improvement_suggestions/index'
     get 'improvement_suggestions/show'
   end
+
   namespace :public do
     # 他のルート定義があるかもしれませんが、これを追加/確認します
     resources :negative_reports
   end
+
   namespace :public do
     get 'users/show'
     get 'users/edit'

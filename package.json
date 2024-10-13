@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@hotwired/turbo-rails": "^8.0.10",
+    "chart.js": "^4.4.4",
+    "chartkick": "^5.0.1"
+  },
+  "scripts": {
+    "build": "webpack --mode production"
+  }
+}

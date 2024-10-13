@@ -80,3 +80,8 @@ module.exports = function(api) {
     ].filter(Boolean)
   }
 }
+
+module.exports = {
+  presets: ['@babel/preset-env'],
+  ignore: [/node_modules\/(?!(chart.js)\/).*/], // chart.js をトランスパイルする
+};

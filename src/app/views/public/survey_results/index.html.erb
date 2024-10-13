@@ -1,0 +1,104 @@
+<h1>Public::SurveyResults#index</h1>
+<p>分析</p>
+<p>1. 90点〜100点：非常に満足（辞める必要はほぼなし）</p>
+<p>状態: 仕事に対する満足度が非常に高いです。キャリア成長、ワークライフバランス、報酬、職場の人間関係、仕事内容など、ほぼすべての面で満足している状態です。</p>
+<p>アクション: 辞める必要はなく、むしろ今の環境でさらに成長やチャレンジを求めるべきです。もし気になる小さな改善点があれば、上司や同僚と話し合って微調整する程度で十分でしょう。</p>
+<p>2. 70点〜89点：おおむね満足（辞めるかどうか迷うレベル）</p>
+<p>状態: 全体的に満足しているが、いくつかの要因で不満を感じる部分がある状態です。特に、ワークライフバランスや報酬、人間関係などに一部改善の余地があるかもしれません。</p>
+<p>アクション: 辞める前に、不満のある部分を具体的に特定し、解決できる方法を探してみましょう。上司や同僚とのコミュニケーションで改善できる可能性が高いです。辞めるか迷う場合は、短期的な感情に左右されず、長期的な目標と現状を照らし合わせて考えます。</p>
+<p>3. 50点〜69点：やや不満（改善が見込めなければ辞めることを検討）</p>
+<p>状態: ある程度の満足はあるが、特定の要因で強い不満を感じている状態です。例えば、仕事にやりがいを感じない、キャリア成長の機会が少ない、または職場環境がストレスフルであるなど、問題が深刻になりつつある可能性があります。</p>
+<p>アクション: 辞めることを視野に入れつつ、まずは職場内での改善策を試みるべきです。人事や上司に相談し、配置転換や業務の調整、昇進の機会など、状況を変えられる可能性があればそれに取り組みます。それでも改善が見られない場合は、転職を検討し始めてもよい段階です。</p>
+<p>4. 30点〜49点：不満が多い（辞める準備を開始するべき）</p>
+<p>状態: 満足できる要因が少なく、不満やストレスが多い状態です。仕事に対するモチベーションが低く、報酬や人間関係、成長機会、ワークライフバランスなどに問題がある可能性があります。この状態では、仕事が心身に悪影響を及ぼしていることも考えられます。</p>
+<p>アクション: 早急に辞める準備を始めるべきです。転職活動を開始し、キャリアコンサルタントや同僚からアドバイスを得ることが推奨されます。辞める前に、自分の次のキャリアステップをしっかり計画し、新しい仕事に移行する準備を整えましょう。</p>
+<p>5. 0点〜29点：非常に不満（即時に辞めることを強く推奨）</p>
+<p>状態: 仕事に対する満足度がほぼなく、強い不満やストレスを感じている状態です。身体的・精神的な健康に悪影響が出ている可能性も高いです。やりがいや成長の機会がなく、職場の人間関係も悪化しているかもしれません。このままではバーンアウトや深刻な健康問題につながる可能性があります。</p>
+<p>アクション: 可能であれば、すぐに辞める決断をするべきです。自分の健康や幸福を最優先に考え、無理をしないようにしましょう。即時の転職やキャリアの見直しを行い、新しい環境でリスタートを切ることを強く推奨します。</p>
+<h1>総合点</h1>
+<h1>Survey Results</h1>
+<%= @survey_results_chart.inspect %>
+<%= line_chart @survey_results_chart, xtitle: "Date", ytitle: "Total Score" %>
+
+<ul>
+  <% @survey_results.each do |result| %>
+    <li>
+      <strong>Date:</strong> <%= result.created_at.strftime("%Y-%m-%d") %>
+      <strong>Total Score:</strong> <%= result.total_score %>
+    </li>
+  <% end %>
+</ul>
+
+
+<% @survey_results.each do |survey_result| %>
+    <div>
+      <p>作成日時：<%= survey_result.created_at.strftime("%Y-%m-%d") %></p>
+      <p>総合点：<%= survey_result.total_score %><%= survey_result.diagnosis %></p>
+    </div>
+<% end %>
+
+<h1>【1. キャリアと成長機会】</h1>
+<% @survey_results.each do |survey_result| %>
+    <div>
+      <p>作成日時：<%= survey_result.created_at %></p>
+      <p>点：<%= survey_result.career_growth_opportunities %></p>
+    </div>
+<% end %>
+
+<h1>【2. 職場の人間関係】</h1>
+<% @survey_results.each do |survey_result| %>
+    <div>
+      <p>作成日時：<%= survey_result.created_at %></p>
+      <p>点：<%= survey_result.workplace_relationships %></p>
+    </div>
+<% end %>
+
+<h1>【3. ワークライフバランス】</h1>
+<% @survey_results.each do |survey_result| %>
+    <div>
+      <p>作成日時：<%= survey_result.created_at %></p>
+      <p>点：<%= survey_result.work_life_balance %></p>
+    </div>
+<% end %>
+
+<h1>【4. 報酬と待遇】</h1>
+<% @survey_results.each do |survey_result| %>
+    <div>
+      <p>作成日時：<%= survey_result.created_at %></p>
+      <p>点：<%= survey_result.compensation_and_benefits %></p>
+    </div>
+<% end %>
+
+<h1>【5. 仕事内容とやりがい】</h1>
+<% @survey_results.each do |survey_result| %>
+    <div>
+      <p>作成日時：<%= survey_result.created_at %></p>
+      <p>点：<%= survey_result.job_content_and_fulfillment %></p>
+    </div>
+<% end %>
+
+<h1>【6. 職場の文化や環境】</h1>
+<% @survey_results.each do |survey_result| %>
+    <div>
+      <p>作成日時：<%= survey_result.created_at %></p>
+      <p>点：<%= survey_result.workplace_culture_and_environment %></p>
+    </div>
+<% end %>
+
+<h1>【7. ストレスと負荷】</h1>
+<% @survey_results.each do |survey_result| %>
+    <div>
+      <p>作成日時：<%= survey_result.created_at %></p>
+      <p>点：<%= survey_result.stress_and_workload %></p>
+    </div>
+<% end %>
+
+<h1>【8. 意義と達成感】</h1>
+<% @survey_results.each do |survey_result| %>
+    <div>
+      <p>作成日時：<%= survey_result.created_at %></p>
+      <p>点：<%= survey_result.purpose_and_accomplishment %></p>
+    </div>
+<% end %>
+
+
