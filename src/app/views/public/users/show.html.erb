@@ -1,4 +1,9 @@
 <h1>Public::Users#show</h1>
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
 <p>ユーザのマイページに飛びました</p>
 
 

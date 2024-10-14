@@ -11,5 +11,5 @@ class User < ApplicationRecord
   has_many :analytics_results, dependent: :destroy
   has_many :survey_answers, dependent: :destroy
   has_many :survey_results, dependent: :destroy
-         
+  
 end

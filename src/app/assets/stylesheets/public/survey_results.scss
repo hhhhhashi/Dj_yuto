@@ -1,3 +1,21 @@
 // Place all the styles related to the public/survey_results controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+/* テーブル全体の枠線を設定 */
+table {
+    width: 100%;  /* テーブルの幅を全体に */
+    border-collapse: collapse;  /* 枠線を重ねて表示 */
+    border: 1px solid black;  /* テーブル全体の枠線 */
+  }
+  
+  /* テーブルのヘッダーやデータセルの枠線を設定 */
+  th, td {
+    border: 1px solid black;  /* 各セルに黒い枠線を設定 */
+    padding: 8px;  /* セルの内側の余白 */
+    text-align: left;  /* テキストを左揃え */
+  }
+  
+  /* ヘッダー部分のスタイリング */
+  thead {
+    background-color: #f2f2f2;  /* 背景色を薄いグレーに設定 */
+  }

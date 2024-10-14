@@ -1,4 +1,5 @@
 class Public::SurveyAnswersController < ApplicationController
+
   def new
     @survey_answer=SurveyAnswer.new
   end

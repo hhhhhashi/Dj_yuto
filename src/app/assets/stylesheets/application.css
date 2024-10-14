@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+.btn[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

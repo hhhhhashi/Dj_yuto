@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/combine/npm/moment@2.29.1,npm/chartjs-adapter-moment@1.0.0"></script>
+    <meta http-equiv="Cache-Control" content="no-store" />
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
     <%= javascript_importmap_tags %>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/combine/npm/moment@2.29.1,npm/chartjs-adapter-moment@1.0.0"></script>
     <%= javascript_include_tag "turbo", type: "module" %>
   </head>
 
@@ -30,6 +30,7 @@
         </li>
       <% end %>
     </header>
+    
     
     <%= yield %>
 

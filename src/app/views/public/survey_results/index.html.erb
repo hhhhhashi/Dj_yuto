@@ -15,90 +15,66 @@
 <p>5. 0点〜29点：非常に不満（即時に辞めることを強く推奨）</p>
 <p>状態: 仕事に対する満足度がほぼなく、強い不満やストレスを感じている状態です。身体的・精神的な健康に悪影響が出ている可能性も高いです。やりがいや成長の機会がなく、職場の人間関係も悪化しているかもしれません。このままではバーンアウトや深刻な健康問題につながる可能性があります。</p>
 <p>アクション: 可能であれば、すぐに辞める決断をするべきです。自分の健康や幸福を最優先に考え、無理をしないようにしましょう。即時の転職やキャリアの見直しを行い、新しい環境でリスタートを切ることを強く推奨します。</p>
-<h1>総合点</h1>
-<h1>Survey Results</h1>
-<%= @survey_results_chart.inspect %>
-<%= line_chart @survey_results_chart, xtitle: "Date", ytitle: "Total Score" %>
+<h1>感情ログ</h1>
 
-<ul>
-  <% @survey_results.each do |result| %>
-    <li>
-      <strong>Date:</strong> <%= result.created_at.strftime("%Y-%m-%d") %>
-      <strong>Total Score:</strong> <%= result.total_score %>
-    </li>
-  <% end %>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>キャリアと成長機会</th>
+      <th>職場の人間関係</th>
+      <th>ワークライフバランス</th>
+      <th>報酬と待遇</th>
+      <th>仕事内容とやりがい</th>
+      <th>職場の文化や環境</th>
+      <th>ストレスと負荷</th>
+      <th>意義と達成感</th>
+      <th>総合点</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @survey_results.each do |result| %>
+      <tr>
+        <td><%= result.created_at.strftime("%Y-%m-%d") %></td> <!-- 日付を表示 -->
+        <td><%= result.career_growth_opportunities %></td> <!-- Career Growth Opportunitiesのスコア -->
+        <td><%= result.workplace_relationships %></td> <!-- Workplace Relationshipsのスコア -->
+        <td><%= result.work_life_balance %></td> <!-- Work-Life Balanceのスコア -->
+        <td><%= result.compensation_and_benefits %></td> <!-- Compensation & Benefitsのスコア -->
+        <td><%= result.job_content_and_fulfillment %></td> <!-- Job Content & Fulfillmentのスコア -->
+        <td><%= result.workplace_culture_and_environment %></td> <!-- Workplace Culture & Environmentのスコア -->
+        <td><%= result.stress_and_workload %></td> <!-- Stress & Workloadのスコア -->
+        <td><%= result.purpose_and_accomplishment %></td> <!-- Purpose & Accomplishmentのスコア -->
+        <td><%= result.total_score %></td> <!-- 合計スコア -->
+        <td><%= result.diagnosis  %></td> <!-- 合計スコア -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-
-<% @survey_results.each do |survey_result| %>
-    <div>
-      <p>作成日時：<%= survey_result.created_at.strftime("%Y-%m-%d") %></p>
-      <p>総合点：<%= survey_result.total_score %><%= survey_result.diagnosis %></p>
-    </div>
-<% end %>
+<h1>【総合点】</h1>
+<%= line_chart @chart_career_growth, xtitle: "Date", ytitle: "Total Score", max: 15, library: {spanGaps: true, scales: {x: {min: @chart_total.keys.first, max: (@chart_total.keys.first.to_date + 30.day).strftime("%Y-%m-%d")}}}  %>
 
 <h1>【1. キャリアと成長機会】</h1>
-<% @survey_results.each do |survey_result| %>
-    <div>
-      <p>作成日時：<%= survey_result.created_at %></p>
-      <p>点：<%= survey_result.career_growth_opportunities %></p>
-    </div>
-<% end %>
+<%= line_chart @chart_career_growth, xtitle: "Date", ytitle: "Total Score", max: 15, library: {spanGaps: true, scales: {x: {min: @chart_career_growth.keys.first, max: (@chart_career_growth.keys.first.to_date + 30.day).strftime("%Y-%m-%d")}}}  %>
 
 <h1>【2. 職場の人間関係】</h1>
-<% @survey_results.each do |survey_result| %>
-    <div>
-      <p>作成日時：<%= survey_result.created_at %></p>
-      <p>点：<%= survey_result.workplace_relationships %></p>
-    </div>
-<% end %>
+<%= line_chart @chart_workplace_relationships, xtitle: "Date", ytitle: "Total Score", max: 15, library: {spanGaps: true, scales: {x: {min: @chart_workplace_relationships.keys.first, max: (@chart_workplace_relationships.keys.first.to_date + 30.day).strftime("%Y-%m-%d")}}}  %>
 
 <h1>【3. ワークライフバランス】</h1>
-<% @survey_results.each do |survey_result| %>
-    <div>
-      <p>作成日時：<%= survey_result.created_at %></p>
-      <p>点：<%= survey_result.work_life_balance %></p>
-    </div>
-<% end %>
+<%= line_chart @chart_work_life_balance, xtitle: "Date", ytitle: "Total Score", max: 15, library: {spanGaps: true, scales: {x: {min: @chart_work_life_balance.keys.first, max: (@chart_work_life_balance.keys.first.to_date + 30.day).strftime("%Y-%m-%d")}}} %>
 
 <h1>【4. 報酬と待遇】</h1>
-<% @survey_results.each do |survey_result| %>
-    <div>
-      <p>作成日時：<%= survey_result.created_at %></p>
-      <p>点：<%= survey_result.compensation_and_benefits %></p>
-    </div>
-<% end %>
+<%= line_chart @chart_compensation_and_benefits, xtitle: "Date", ytitle: "Total Score", max: 10, library: {spanGaps: true, scales: {x: {min: @chart_compensation_and_benefits.keys.first, max: (@chart_compensation_and_benefits.keys.first.to_date + 30.day).strftime("%Y-%m-%d")}}}  %>
 
 <h1>【5. 仕事内容とやりがい】</h1>
-<% @survey_results.each do |survey_result| %>
-    <div>
-      <p>作成日時：<%= survey_result.created_at %></p>
-      <p>点：<%= survey_result.job_content_and_fulfillment %></p>
-    </div>
-<% end %>
+<%= line_chart @chart_job_content_and_fulfillment, xtitle: "Date", ytitle: "Total Score", max: 15, library: {spanGaps: true, scales: {x: {min: @chart_job_content_and_fulfillment.keys.first, max: (@chart_job_content_and_fulfillment.keys.first.to_date + 30.day).strftime("%Y-%m-%d")}}} %>
 
 <h1>【6. 職場の文化や環境】</h1>
-<% @survey_results.each do |survey_result| %>
-    <div>
-      <p>作成日時：<%= survey_result.created_at %></p>
-      <p>点：<%= survey_result.workplace_culture_and_environment %></p>
-    </div>
-<% end %>
+<%= line_chart @chart_workplace_culture_and_environment, xtitle: "Date", ytitle: "Total Score", max: 10, library: {spanGaps: true, scales: {x: {min: @chart_workplace_culture_and_environment.keys.first, max: (@chart_workplace_culture_and_environment.keys.first.to_date + 30.day).strftime("%Y-%m-%d")}}} %>
 
 <h1>【7. ストレスと負荷】</h1>
-<% @survey_results.each do |survey_result| %>
-    <div>
-      <p>作成日時：<%= survey_result.created_at %></p>
-      <p>点：<%= survey_result.stress_and_workload %></p>
-    </div>
-<% end %>
+<%= line_chart @chart_stress_and_workload, xtitle: "Date", ytitle: "Total Score", max: 10, library: {spanGaps: true, scales: {x: {min: @chart_stress_and_workload.keys.first, max: (@chart_stress_and_workload.keys.first.to_date + 30.day).strftime("%Y-%m-%d")}}}  %>
 
 <h1>【8. 意義と達成感】</h1>
-<% @survey_results.each do |survey_result| %>
-    <div>
-      <p>作成日時：<%= survey_result.created_at %></p>
-      <p>点：<%= survey_result.purpose_and_accomplishment %></p>
-    </div>
-<% end %>
-
-
+<%= line_chart @chart_purpose_and_accomplishment, xtitle: "Date", ytitle: "Total Score", max: 10, library: {spanGaps: true, scales: {x: {min: @chart_purpose_and_accomplishment.keys.first, max: (@chart_purpose_and_accomplishment.keys.first.to_date + 30.day).strftime("%Y-%m-%d")}}} %>
